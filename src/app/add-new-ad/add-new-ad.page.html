@@ -1,0 +1,61 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Create A New Ad</ion-title>
+    <ion-icon
+      name="close"
+      slot="end"
+      size="larger"
+      class="ion-padding"
+      (click)="dismiss()"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-align-self-center">
+    <ion-item>
+      <ion-textarea
+        [(ngModel)]="ad_creator"
+        placeholder="Ad's creator"
+      ></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]="title" placeholder="Ad's title"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Short Description</ion-label>
+      <ion-textarea placeholder="Type something here" [(ngModel)]="description">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <!-- <ion-label>Creation Date</ion-label> -->
+      <ion-datetime
+        datetime="datetime"
+        [(ngModel)]="creation_date"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+      <ion-label>Category</ion-label>
+      <span>{{selectedCategory}}</span>
+    </ion-item>
+
+    <ion-item>
+      <ion-chip
+        *ngFor="let category of categories; let i = index"
+        color="secondary"
+        outline="true"
+        (click)="selectCategory(i)"
+      >
+        <ion-label color="secondary">{{category}}</ion-label>
+      </ion-chip>
+    </ion-item>
+    <ion-button class="ion-margin" expand="block" (click)="createAd()"
+      >Save</ion-button
+    >
+  </ion-card>
+</ion-content>

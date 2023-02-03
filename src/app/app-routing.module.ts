@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'add-new-ad',
+    loadChildren: () => import('./add-new-ad/add-new-ad.module').then( m => m.AddNewAdPageModule)
+  },
 ];
 
 @NgModule({
