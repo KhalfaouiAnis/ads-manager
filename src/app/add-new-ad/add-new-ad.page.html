@@ -16,11 +16,11 @@
     <ion-item>
       <ion-textarea
         [(ngModel)]="ad_creator"
-        placeholder="Ad's creator"
+        placeholder="Ad creator (Anis by default)"
       ></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-textarea [(ngModel)]="title" placeholder="Ad's title"></ion-textarea>
+      <ion-textarea [(ngModel)]="title" placeholder="Title..."></ion-textarea>
     </ion-item>
 
     <ion-item>
@@ -31,12 +31,21 @@
 
     <ion-item>
       <ion-icon name="calendar-outline" slot="start"></ion-icon>
-      <!-- <ion-label>Creation Date</ion-label> -->
       <ion-datetime
         datetime="datetime"
         [(ngModel)]="creation_date"
       ></ion-datetime>
     </ion-item>
+
+    <ion-button expand="full">
+      <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+      <input
+        type="file"
+        (change)="loadImageFromDevice($event)"
+        id="file-input"
+        accept="image/png, image/jpeg"
+      />
+    </ion-button>
 
     <ion-item>
       <ion-icon name="pricetag-outline" slot="start"></ion-icon>

@@ -40,7 +40,7 @@ export class HomePage {
   }
 
   async deleteAd(id: number) {
-    this.adsService.deleteAd(id)
+    await this.adsService.deleteAd(id)
     await this.getAllAds()
   }
 }

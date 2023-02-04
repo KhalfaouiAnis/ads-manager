@@ -15,7 +15,7 @@ export class AdsService {
     await this.storage.create()
   }
 
-  async createAd(ad: AdModel) {
+  async createAd(ad: AdModel | {}) {
     this.getAllAds().then(async (ads: AdModel[]) => {
       if (ads && ads.length) {
         await this.storage.set("ads", [ad, ...ads])
@@ -25,10 +25,9 @@ export class AdsService {
     })
   }
 
-  deleteAd(id: number) {
-    this.getAllAds().then((ads: AdModel[]) => {
-      this.storage.set("ads", [...ads.filter((item) => item.id !== id)])
-    })
+  async deleteAd(id: number) {
+    const ads: AdModel[] = await this.getAllAds();
+    await this.storage.set("ads", [...ads.filter((item) => item.id !== id)]);
   }
 
   async getAllAds() {
@@ -36,7 +35,7 @@ export class AdsService {
   }
 
   async getMyAds() {
-    const ads: AdModel[] = await this.storage.get('ads')
+    const ads: AdModel[] = await this.getAllAds();
     return ads.filter(ad => ad.ad_creator === "Anis")
   }
 }
