@@ -7,7 +7,7 @@
           {{today | date:'fullDate'}}
         </p>
       </ion-label>
-      <ion-item *ngIf="ads?.length !== 0">
+      <ion-item>
         <ion-checkbox (ionChange)="filterAds($event)" slot="end"></ion-checkbox>
         <ion-label>My Ads</ion-label>
       </ion-item>
