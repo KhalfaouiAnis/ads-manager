@@ -12,6 +12,11 @@
         <ion-label>My Ads</ion-label>
       </ion-item>
     </ion-item>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -60,7 +65,7 @@
       </ion-item>
     </ion-card-content>
 
-    <ion-row *ngIf="ad.ad_creator === 'Anis'">
+    <ion-row *ngIf="ad.ad_creator === username">
       <ion-item button (click)="deleteAd(ad.id)">
         <ion-icon
           name="trash"

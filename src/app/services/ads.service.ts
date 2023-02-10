@@ -34,8 +34,8 @@ export class AdsService {
     return await this.storage.get('ads');
   }
 
-  async getMyAds() {
+  async getMyAds(username: string) {
     const ads: AdModel[] = await this.getAllAds();
-    return ads.filter(ad => ad.ad_creator === "Anis")
+    return ads.filter(ad => ad.ad_creator === username)
   }
 }

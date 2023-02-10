@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { ModalController } from '@ionic/angular';
 import { AdModel } from '../models/AdModel';
 import { AdsService } from '../services/ads.service';
@@ -14,24 +15,26 @@ export class AddNewAdPage implements OnInit {
 
   newAd: AdModel | {} = {};
 
-  ad_creator = 'Anis';
+  ad_creator: string;
   title = '';
   description = '';
   category: "Education" | "Travel" = 'Education';
   creation_date = new Date();
   image_url = "";
 
-  constructor(public modalCtlr: ModalController, public adsService: AdsService) {
-
+  constructor(
+    private auth: Auth,
+    public modalCtlr: ModalController, public adsService: AdsService) {
   }
 
   ngOnInit() {
+    this.ad_creator = this.auth.currentUser.email.split("@")[0];
     this.categories.push('Education', 'Travel')
   }
 
   async createAd() {
     this.newAd = ({
-      id: Math.random(),
+      id: Math.random() + new Date().getMilliseconds(),
       ad_creator: this.ad_creator,
       title: this.title,
       description: this.description,
