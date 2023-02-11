@@ -18,7 +18,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Short Description</ion-label>
+      <ion-label position="floating">Short Description</ion-label>
       <ion-textarea placeholder="Type something here" [(ngModel)]="description">
       </ion-textarea>
     </ion-item>
@@ -31,7 +31,7 @@
       ></ion-datetime>
     </ion-item>
 
-    <ion-button expand="full">
+    <ion-button class="ion-margin" expand="full">
       <ion-icon lazy="true" slot="start" name="image"></ion-icon>
       <input
         type="file"
