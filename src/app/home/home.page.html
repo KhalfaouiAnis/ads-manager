@@ -7,12 +7,12 @@
           {{today | date:'fullDate'}}
         </p>
       </ion-label>
-      <ion-item>
-        <ion-checkbox (ionChange)="filterAds($event)" slot="end"></ion-checkbox>
-        <ion-label>My Ads</ion-label>
-      </ion-item>
     </ion-item>
     <ion-buttons slot="end">
+      <ion-item>
+        <ion-checkbox slot="end" (ionChange)="filterAds($event)"></ion-checkbox>
+        <ion-label>My Ads</ion-label>
+      </ion-item>
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
@@ -20,7 +20,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-card *ngFor="let ad of ads; let i = index" class="ion-margin">
     <ion-card-header>
       <ion-card-subtitle>

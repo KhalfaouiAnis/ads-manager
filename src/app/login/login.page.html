@@ -1,17 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="secondary">
     <ion-title>Login space</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
   <ion-item>
     <ion-label class="ion-text-center ion-padding-top">
-      <h1>Ads Manager</h1>
+      <h1 style="color: white">Ads Manager</h1>
     </ion-label>
   </ion-item>
-  <form [formGroup]="credentials" (onSubmit)="login()">
-    <ion-item fill="solid" class="ion-margin-bottom">
+  <form [formGroup]="credentials" (ngSubmit)="login()">
+    <ion-item class="ion-margin-bottom">
       <ion-input
         type="email"
         placeholder="Email"
@@ -23,7 +23,7 @@
         >Email is invalid</ion-note
       >
     </ion-item>
-    <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-item class="ion-margin-bottom">
       <ion-input
         type="password"
         placeholder="Password"
